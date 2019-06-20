@@ -1,0 +1,14 @@
+<h3>Restaurantes</h3>
+<input #newRestaurant placeholder="Nuevo Restaurant" type="text" class="form-control">
+<button (click)="addRestaurant(newRestaurant)" type="button" class="btn btn-primary">Agregar Restaurant</button>
+<hr>
+<ol class="list-group">
+  <li *ngFor="let restaurant of restaurants" class="list-group-item"><span class="hlists">{{restaurant.id}}) {{restaurant.name}}</span>
+    <div>Opiniones:</div>
+    <ul class="list-group">
+      <input *ngFor="let review of restaurant.reviews" type="text" class="form-control" id="usr" value="{{review.content}}">
+      <input #newReview placeholder="Escriba Opinión" type="text" class="form-control" id="{{restaurant.id}}" value="">
+    </ul>
+    <button (click)="addReviews(newReview)" type="button" class="btn btn-primary">Agregar Opinión</button>
+  </li>
+</ol>
